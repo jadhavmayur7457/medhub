@@ -9,4 +9,21 @@
       </div>
    </div>
 </div>
-<app-top-deal></app-top-deal>
+<!-- navbar -->
+<div class=" container mt-3 p-2 border border-3 shadow"> <nav class="navbar navbar-light bg-light">
+   <div class="container-fluid">
+     <a class="navbar-brand">Pincode</a>
+     <form class="d-flex" >
+       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="fsearch" [(ngModel)]="Pincode" >
+       <button class="btn btn-outline-success" type="button" (click)="addPincode()">Search</button>&nbsp;
+        <div>
+           <label for="id1">City</label>
+           <input type="text" id="id1" name="fcity"  [(ngModel)]="city" >
+            
+       </div>
+     </form>
+   </div>
+ </nav>
+ </div>
+
+ <app-top-deal></app-top-deal>

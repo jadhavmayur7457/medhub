@@ -11,13 +11,16 @@ import { TopDealComponent } from './components/top-deal/top-deal.component';
 import{HttpClientModule} from '@angular/common/http';
 import{BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ViewProductByCategoriesComponent } from './components/view-product-by-categories/view-product-by-categories.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     MedicineHomeComponent,
-    TopDealComponent
+    TopDealComponent,
+    ViewProductByCategoriesComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,9 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     CoreModule,
     SharedModule,
     HttpClientModule,
-    CarouselModule
+    CarouselModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
