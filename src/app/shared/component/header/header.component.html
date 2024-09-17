@@ -1,4 +1,35 @@
+<div class="row m-auto shadow-sm text-light mb-2 border ">
+  <div class="col-md-4 text-center p-2 fs-5 fw-bold">
+    <a class="text-decoration-none cursor">Medhub</a>
+  </div>
+  <div class="col-md-6 text-end p-2 fs-6 fw-bold">
+    <a class="text-decoration-none mx-2 cursor">About us</a>
+    <a class="text-decoration-none mx-2 cursor" data-bs-toggle="modal" data-bs-target="#LoginModal">Login</a>
+  </div>
 
-<div class="container me-auto shadow-sm">
-    
+
+</div>
+<!-- <button class="btn btn-primary" type="button"> Launch demo</button> -->
+<div class="modal fade" id="LoginModal" tabindex="-1" aria-labelledby="LoginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="LoginModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-login *ngIf="action == 'Login'"></app-login>
+        <app-signup *ngIf="action == 'signup'"></app-signup>
+      </div>
+      <!-- <div class="modal-footer">
+      </div> -->
+     <div class="d-grid gap-2 px-4 mb-2">
+
+      <button class="btn btn-primary" type="button" *ngIf="action == 'Login'" (click)="triggerAction('signup')">SignUp</button>
+      <button class="btn btn-primary" type="button"*ngIf="action == 'signup'"  (click)="triggerAction('Login')">Login</button>
+ 
+
+  </div>
+    </div>
+  </div>
 </div>

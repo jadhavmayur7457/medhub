@@ -13,6 +13,10 @@ import{BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ViewProductByCategoriesComponent } from './components/view-product-by-categories/view-product-by-categories.component';
+import { WasteComponent } from './waste/waste.component';
+
+import { UppercasePipe } from './waste/uppercase.pipe';
+
 
 @NgModule({
   declarations: [
@@ -20,8 +24,13 @@ import { ViewProductByCategoriesComponent } from './components/view-product-by-c
     HomeComponent,
     MedicineHomeComponent,
     TopDealComponent,
-    ViewProductByCategoriesComponent
+    ViewProductByCategoriesComponent,
+    WasteComponent,
+  
+    UppercasePipe,
+    
   ],
+  // exports:[],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -34,9 +34,9 @@
     <div class="col-md-2  mx-5 my-3 " *ngFor="let deal of product.top_deals">
         <div class="card " style="width: 15rem; height: 22rem;" >
           <!-- <div class="card-body d-flex align-items-center justify-content-center flex-column"> -->
-            <div class="card card-block d-flex align-items-center justify-content-center flex-column" style="width:17rem;">
+            <div class="card-block d-flex align-items-center justify-content-center flex-column" style="width:17rem; ">
                 <img [src]="deal.productImageSlug[0]" [alt]="" [title]="deal.description" height="200" width="200" class="" >
-                <div class="card-body" style="width: 11rem; height: 10rem;">
+                <div class="card-body" style="width: 13rem; height: 10rem;">
                   <h5 class="card-title text-desc"[title]="deal.description">{{deal.description}}</h5>
                   <p class="card-text text-muted">{{deal.type}}</p>
                    <p><span class="text-muted">MRP &nbsp;</span><span class="text-decoration-line-through"> ₹{{deal.discountPrice}}</span>&nbsp;<span>₹{{deal.discountPrice}}</span>
@@ -49,3 +49,18 @@
     </div>
  </div>
 </div>
+
+<!-- <div class="col-md-2 mx-5 my-3 "  *ngFor="let deal of product.top_deals" >
+  <div class="card" style="width: 15rem; height: 22rem;">
+      <div class="card-body d-flex align-items-center justify-content-center flex-column">
+          <img [src]="deal.productImageSlug [0]" [alt]="deal.alt" [title]="deal.descriptionString" height="200" width="200" class="">
+       <div class="card-body" style="width: 15rem; height: 22rem;" >
+    <h5 class="card-title text-desc" [title]="deal.description">{{deal.description}}</h5>
+    <p class="card-text text-muted">{{deal.type}}</p>
+     <p><span class="text-muted">MRP&nbsp;</span><span>₹{{deal.discountPrice}}</span>&nbsp;<span class="text-decoration-line-through">₹{{deal.actualPrice}}</span>
+      <button type="button" class="btn btn-outline-primary btn-sm border ms-3 px-2" (click)="Addtocart(deal)">ADD</button>
+    </p>
+  </div>
+      </div>
+    </div>
+</div> -->

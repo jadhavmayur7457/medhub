@@ -1,0 +1,19 @@
+
+<div class="row  p-2">
+    <p class="text-danger" *ngIf="isNewUser">User Does Not Exist</p>
+
+    <form [formGroup]="loginForm" (ngSubmit)="login">
+        <div class="mb-3">
+            <label for="id1" class="form-label">Email</label>
+            <input type="email" class="form-control" name="femail" formControlName="email" >
+        </div>
+        <div class="mb-3">
+            <label for="id2" class="form-label">Password</label>
+            <input type="password" class="form-control" name="fpassword" formControlName="password"  >
+        </div>
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="submit" (click)="login()">Login</button>
+        </div>
+    </form>
+</div>
+
