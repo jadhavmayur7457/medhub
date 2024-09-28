@@ -1,5 +1,5 @@
 import { HttpParams } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpService } from 'src/app/core/service/http.service';
 
@@ -12,6 +12,8 @@ export class LoginComponent  {
 
   loginForm!:FormGroup
   isNewUser:boolean=false
+  @Output()
+  emitMethod:EventEmitter<boolean>=new EventEmitter
 
 
   constructor(private fb:FormBuilder,private http:HttpService){
@@ -41,6 +43,11 @@ export class LoginComponent  {
      next:(response:any)=>{
       if(response && response.length>0){
         this.isNewUser=false
+        const userObj=response[0];
+        const token="ghvdhvhsjkflhvnj vkjfbv";
+        localStorage.setItem("userDetail",JSON.stringify(userObj))
+        localStorage.setItem("token",token)
+        this.emitMethod.emit(true)
       }else{
         this.isNewUser=true
       }

@@ -1,16 +1,17 @@
 
 <div class="row p-2">
-    <p class="text-success fw-bold fs-6" >User Does Not Exist</p>
+    <p class="text-danger fw-bold fs-6" *ngIf="isOtpInvalid">Please enter Valid Otp</p>
+    <p class="text-danger fw-bold fs-6" *ngIf="!isOtpVerified">Mobile verification is Mandatory</p>
 
    
-        <form>
+        <form #userRegForm="ngForm"  (ngSubmit)="SignUP()">
             <div class="mb-3">
                 <label class="form-label" for="id1">Name</label>
-                <input class="form-control" type="text" name="Fname" id="id1" >
+                <input class="form-control" type="text" name="Fname" id="id1"  [(ngModel)]="userObj.name" required>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="id2">Email</label>
-                <input class="form-control" type="email" name="fEmail" id="id2" >
+                <input class="form-control" type="email" name="fEmail" id="id2" [(ngModel)]="userObj.email" required >
             </div>
             <!-- <div class="mb-3">
                 
@@ -18,25 +19,28 @@
             </div> -->
             <label class="form-label" for="id3">Mobile</label>
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <span class="input-group-text cursor bg-primary " id="basic-addon2" (click)="getOtp()">Get Otp</span>
+                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username"name="fmobile" 
+                [(ngModel)]="userObj.mobile" required maxlength="10" minlength="10">
+                <span *ngIf="!isOtpVerified" class="input-group-text cursor bg-primary " id="basic-addon2" (click)="getOtp()">Get Otp</span>
+                <span *ngIf="isOtpVerified" class="input-group-text"><i class="bi bi-check-circle fs-5 text-success"></i></span>
               </div>
-              <label class="form-label" for="id3" *ngIf="DisplayOtpField">EnterOtp</label>
-              <div class="input-group mb-3" *ngIf="DisplayOtpField">
-                  <input type="text" class="form-control" id="basic-addon3">
+              <ng-container *ngIf="DisplayOtpField">
+                <label class="form-label" for="id3">EnterOtp</label>
+                  <div class="input-group mb-3" >
+                  <input type="text" class="form-control" id="basic-addon3" name="otp" [(ngModel)]="otpEnter" required minlength="6">
                   <span class="input-group-text cursor bg-primary " id="basic-addon3" (click)="verifyOtp()">verifyOtp</span>
                 </div>
                 <p class="fs-6">OtpValid for <strong>{{otpTimer}}&nbsp;sec</strong></p>
+              </ng-container>
            
             <div class="mb-3">
                 <label class="form-label" for="id4">Password</label>
-                <input class="form-control" type="password" name="fpassword" id="id4" >
+                <input class="form-control" type="password" name="fpassword" id="id4" [(ngModel)]="userObj.password" required >
             </div>
-            <div class="mb-3">
-                <label class="form-label" for="id5">Confirme Password</label>
-                <input class="form-control" type="password" name="FconfirmPassword" id="id5" >
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+              <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary" [disabled]="userRegForm.invalid">SignUp</button>
+              </div>
+            
         </form>
 
    

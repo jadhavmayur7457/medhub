@@ -20,4 +20,9 @@ export class HttpService {
   const Url=this.baseUrl+ endPoint
   return  this.http.get(Url,{headers:this.headers,params:param})
   }
+  postdatafromserver(endPoint: string,data:any){
+   
+    const Url=this.baseUrl+ endPoint
+    return  this.http.post(Url,data,{headers:this.headers})
+    }
 }

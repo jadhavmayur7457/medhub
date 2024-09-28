@@ -3,8 +3,20 @@
     <a class="text-decoration-none cursor">Medhub</a>
   </div>
   <div class="col-md-6 text-end p-2 fs-6 fw-bold">
+  
+    <a class="text-decoration-none mx-2 cursor"><i class="bi bi-cart fs-4 "></i><span class="cart border rounded-circle px-1">{{Count}}</span></a>
+    <ng-container *ngIf="hideLoginBtn">
+      <a  class="text-decoration-none mx-2 cursor text-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">{{userinfo.name}}</a>
+    <ul    class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item" href="#">My Profile</a></li>
+      <li><a class="dropdown-item cursor" href="#" >Address</a></li>
+      <li><a class="dropdown-item cursor" href="#">Something else here</a></li>
+      <li><a class="dropdown-item cursor" href="#" (click)="logout()">LogOut</a></li>
+    </ul>
+    </ng-container>
+    
+    <a *ngIf="!hideLoginBtn" class="text-decoration-none mx-2 cursor" data-bs-toggle="modal" data-bs-target="#LoginModal">Login</a>
     <a class="text-decoration-none mx-2 cursor">About us</a>
-    <a class="text-decoration-none mx-2 cursor" data-bs-toggle="modal" data-bs-target="#LoginModal">Login</a>
   </div>
 
 
@@ -15,10 +27,10 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="LoginModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" #closeButton data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <app-login *ngIf="action == 'Login'"></app-login>
+        <app-login *ngIf="action == 'Login'" (emitMethod)="getdata($event)"></app-login>
         <app-signup *ngIf="action == 'signup'"></app-signup>
       </div>
       <!-- <div class="modal-footer">

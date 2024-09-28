@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { ServiceService } from 'src/app/cart/service.service';
 import { HttpService } from 'src/app/core/service/http.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { HttpService } from 'src/app/core/service/http.service';
 export class TopDealComponent {
 
   topdeal:any=[]
-  constructor(private http:HttpService){
+  constructor(private http:HttpService,private cart:ServiceService){
 
   }
 
@@ -58,6 +59,10 @@ export class TopDealComponent {
       }
     },
     nav: true
+  }
+
+  addToCart(productObj:any){
+this.cart.addToCart(productObj)
   }
 }
 
