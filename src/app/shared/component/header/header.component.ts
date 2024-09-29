@@ -24,7 +24,16 @@ export class HeaderComponent {
     this.Count=response
   }
     })
+    this.Getcartitem()
    }
+
+  Getcartitem() {
+    var CartItem=this.cart.GetCartItemFromStoreage()
+    if(CartItem !== null){
+      this.Count=CartItem.length
+    }
+  }
+
   action:string='Login'
    hideLoginBtn:boolean=false
 
