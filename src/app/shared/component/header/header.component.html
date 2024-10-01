@@ -4,7 +4,7 @@
   </div>
   <div class="col-md-6 text-end p-2 fs-6 fw-bold">
   
-    <a class="text-decoration-none mx-2 cursor"><i class="bi bi-cart fs-4 "></i><span class="cart border rounded-circle px-1">{{Count}}</span></a>
+    <a class="text-decoration-none mx-2 cursor" (click)="navigatedto()"> <i class="bi bi-cart fs-4 "></i><span class="cart border rounded-circle px-1">{{Count}}</span></a>
     <ng-container *ngIf="hideLoginBtn">
       <a  class="text-decoration-none mx-2 cursor text-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">{{userinfo.name}}</a>
     <ul    class="dropdown-menu" aria-labelledby="dropdownMenuButton1">

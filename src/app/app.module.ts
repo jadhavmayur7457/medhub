@@ -17,6 +17,7 @@ import { WasteComponent } from './waste/waste.component';
 
 import { UppercasePipe } from './waste/uppercase.pipe';
 import { CartComponent } from './cart/cart.component';
+import { BookingComponent } from './booking/booking.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { CartComponent } from './cart/cart.component';
   
     UppercasePipe,
        CartComponent,
+       BookingComponent,
     
   ],
   // exports:[],

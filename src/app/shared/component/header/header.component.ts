@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { ServiceService } from 'src/app/cart/service.service';
 import { AuthenticationService } from 'src/app/core/service/authentication.service';
 
@@ -14,7 +15,7 @@ export class HeaderComponent {
 
    @ViewChild('closeButton')
    closebtn!:ElementRef
-   constructor(private auth:AuthenticationService,private cart :ServiceService){
+   constructor(private auth:AuthenticationService,private cart :ServiceService,private route:Router){
 
    }
 
@@ -54,5 +55,9 @@ export class HeaderComponent {
    localStorage.removeItem("token")
    this.hideLoginBtn=false
  
+  }
+
+  navigatedto(){
+    this.route.navigate(['/cart'])
   }
 }

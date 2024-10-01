@@ -1,11 +1,76 @@
-<p>cart works!</p>
-<div class="container">
-    <div class="row">
-        <div class="col-md-7 px-4 mt-4 border border-2 " height="1125px">
-          <p>hellow</p>
+<!-- <div class="container">
+    <div class="row mt-3 gx-3">
+        <div class="col-md-7 border border-2 py-4 ms-3  shadow-sm ">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+               
+                </div>
+              </div>
         </div>
-        <div class="col-md-5 px-4 mt-4 border border-2">
-          <p>kasa aahes</p>
+        <div class="col-md-3 ms-5 border border-2 py-4 shadow-sm ">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        
+                </div>
+              </div>
         </div>
-    </div>
-</div>
+            
+        </div>
+    </div> -->
+    <div class="container mt-4 ">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-7 py-4 border rounded-4">
+           <strong class="ms-2">Cart items  </strong><span class="ms-2">{{orderObj.product.length}} items</span>
+            <div class="card mt-2 py-3 card-block" *ngFor="let item of orderObj.product;let i=index">
+               <div class="card-body row">
+                 <div class="col-md-7 ms-2">
+                      <h6 class="card-text">{{item.discription}}</h6>
+                      <p class="card-text text-muted">{{item.brand}}</p>
+                      <p class="card-text text-muted">{{item.type}}</p>
+                 </div> 
+                 <div class="col-md-4 text-end">
+                    <p class="card-text">₹ {{item.discount}} &nbsp;<span class="text-decoration-line-through">MRP&nbsp; ₹ {{item.price}}</span></p>
+                    <p><i class="bi bi-dash-circle text-primary cursor fs-5" (click)="quantitychange('Negative',i)" ></i> &nbsp;{{item.quantity}}&nbsp;<i class="bi bi-plus-circle text-primary cursor fs-5" (click)="quantitychange('Positive',i)"></i></p>
+                 </div>
+              </div>   
+            </div>
+        </div>
+        <div class="col-md-3 ms-4 py-4 rounded-4 border h-75" >
+            <div class="card card-block">
+              <div class="card-body">
+                    <strong class="ms-2 mb-2">Payment Details</strong>
+                     <hr class="mt-2 ms-2">
+                     <div class="row">
+                          <div class="col-md-5 ms-2">
+                             <p class="card-text fs-6">MRP Totals</p>
+                             <p class="card-text fs-6">Discounts</p>  
+     
+                          </div>
+                          <div class="col-md-4 text-end">
+                               <p class="card-text fs-6">₹ {{orderObj.totalamount}} /-*</p>
+                               <p class="card-text fs-6">₹ {{orderObj.totaldiscount}} /-*</p>
+                          </div>
+                     </div>
+                     <hr class="mt-2 ms-2">
+                     <div class="row mt-1">
+                        <div class="col-md-6">
+                         <p class="card-text text-muted">Amount to Pay</p>
+                         <p style="margin-bottom: -5px;">₹ {{orderObj.finalAmount}} /-*</p> 
+                        </div>
+                        <div class="col-md-5 mt-2 fs-5 text-center text-light bg-primary rounded-3 border pt-2 cursor" routerLink="/booking-details" (click)="checkout()">
+                               Checkout
+                        </div>
+                     </div>
+              </div>
+     
+            </div>
+        </div>
+      </div>
+     </div> 
